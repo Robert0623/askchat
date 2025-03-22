@@ -16,4 +16,9 @@ public class AskController {
     public String getResponse(String message) {
         return chatService.getResponse(message); // 응답(text) --> await
     }
+
+    @GetMapping("/ask-ai")
+    public String getResponseOptions(String message) {
+        return chatService.getReponseOptions(message);
+    }
 }

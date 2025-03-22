@@ -17,4 +17,15 @@ public class ChatService {
     public String getResponse(String message) {
         return chatModel.call(message);
     }
+
+    public String getReponseOptions(String message) {
+        ChatResponse response = chatModel.call(new Prompt(
+                message,
+                OpenAiChatOptions.builder()
+                        .model("gpt-4o")
+                        .temperature(0.4)
+                        .build()
+        ));
+        return response.getResult().getOutput().getText();
+    }
 }
